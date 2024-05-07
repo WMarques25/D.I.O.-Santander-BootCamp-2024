@@ -1,7 +1,9 @@
 package br.com.dio.desafio.dominio;
 
 /**
- * Classe {@code Curso}
+ * Classe {@code Curso} <p>
+ * 
+ * Classe que representa um curso
  * @param titulo {@link String}
  * @param descricao {@link String}
  * @param cargaHoraria {@code int}
@@ -10,10 +12,7 @@ package br.com.dio.desafio.dominio;
  * 
  */
 
-public class Curso {
-
-    private String titulo;
-    private String descricao;
+public class Curso extends Conteudo{
     private int cargaHoraria;
 
     /**
@@ -23,21 +22,9 @@ public class Curso {
      * @param cargaHoraria
      */
     public Curso(String titulo, String descricao, int cargaHoraria) {
-        this.titulo = titulo;
-        this.descricao = descricao;
+        super.setTitulo(titulo);
+        super.setDescricao(descricao);
         this.cargaHoraria = cargaHoraria;
-    }
-    public String getTitulo() {
-        return titulo;
-    }
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-    public String getDescricao() {
-        return descricao;
-    }
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
     public int getCargaHoraria() {
         return cargaHoraria;
@@ -48,7 +35,11 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "\n*--* Curso *--*\nTitulo: " + titulo + ",\nDescricao: " + descricao + ",\nCargaHoraria: " + cargaHoraria;
+        return "\n*--* Curso *--*\nTitulo: " + getTitulo() + ",\nDescricao: " + getDescricao() + ",\nCargaHoraria: " + cargaHoraria;
+    }
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO * cargaHoraria;
     }
 
 }
