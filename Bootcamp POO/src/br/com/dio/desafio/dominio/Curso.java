@@ -35,7 +35,7 @@ public class Curso extends Conteudo{
 
     @Override
     public String toString() {
-        return "\n*--* Curso *--*\nTitulo: " + getTitulo() + ",\nDescricao: " + getDescricao() + ",\nCargaHoraria: " + cargaHoraria;
+        return "\n\n*--* Curso *--*\nTitulo: " + getTitulo() + ",\nDescricao: " + getDescricao() + ",\nCargaHoraria: " + cargaHoraria;
     }
     @Override
     public double calcularXp() {

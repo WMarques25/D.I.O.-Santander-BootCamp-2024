@@ -28,7 +28,7 @@ public class Mentoria extends Conteudo{
 
     @Override
     public String toString() {
-        return "\n*--* Mentoria *--*\nTitulo: " + getTitulo() + ",\nDescricao: " + getDescricao() + ",\nData: " + data;
+        return "\n\n*--* Mentoria *--*\nTitulo: " + getTitulo() + ",\nDescricao: " + getDescricao() + ",\nData: " + data;
     }
     @Override
     public double calcularXp() {
