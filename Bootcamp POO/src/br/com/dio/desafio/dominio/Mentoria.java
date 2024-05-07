@@ -3,17 +3,27 @@ package br.com.dio.desafio.dominio;
 import java.time.LocalDate;
 
 /**
- * Classe {@code Mentoria}
+ * <b>Classe {@code Mentoria}</b>
+ * <p>
+ * Classe que representa uma mentoria
  * @param titulo {@link String}
  * @param descricao {@link String}
  * @param data {@link LocalDate}
  * 
  * @author Wellington Marques
+ * 
+ * @see Conteudo
  */
 public class Mentoria extends Conteudo{
 
     private LocalDate data;
 
+    /**
+     * <b>Construtor {@link Mentoria}</b>
+     * @param titulo {@link String}
+     * @param descricao {@link String}
+     * @param data {@link LocalDate}
+     */
     public Mentoria(String titulo, String descricao, LocalDate data) {
         super.setTitulo(titulo);
         super.setDescricao(descricao);

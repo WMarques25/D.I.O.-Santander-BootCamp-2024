@@ -1,8 +1,8 @@
 package br.com.dio.desafio.dominio;
 
 /**
- * Classe {@code Curso} <p>
- * 
+ * <b>Classe {@code Curso} </b>
+ * <p>
  * Classe que representa um curso
  * @param titulo {@link String}
  * @param descricao {@link String}
@@ -10,6 +10,7 @@ package br.com.dio.desafio.dominio;
  * 
  * @author Wellington Marques
  * 
+ * @see Conteudo
  */
 
 public class Curso extends Conteudo{

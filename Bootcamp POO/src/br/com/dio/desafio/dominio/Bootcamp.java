@@ -5,12 +5,29 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * <b>Classe {@code Bootcamp} </b>
+ * <p>
+ * Classe que representa um Bootcamp
+ * 
+ * @param nome {@link String}
+ * @param descricao {@link String}
+ * @param inicio {@link LocalDate}
+ * @param fim {@link LocalDate}
+ * 
+ * @author Wellington Marques
+ */
 public class Bootcamp {
     private String nome;
     private String descricao;
     private final LocalDate inicio = LocalDate.now();
     private final LocalDate fim = LocalDate.now().plusDays(45);
 
+    /**
+     * Construtor {@link Bootcamp}
+     * @param nome {@link String}
+     * @param descricao {@link String}
+     */
     public Bootcamp(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
@@ -18,6 +35,14 @@ public class Bootcamp {
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
 
+    /**
+     * Adiciona um conteudo ao bootcamp
+     * @param conteudo {@link Conteudo}
+     * 
+     * @see Conteudo
+     * @see Curso
+     * @see Mentoria
+     */
     public void addConteudo(Conteudo conteudo) {
         conteudos.add(conteudo);
     }
@@ -40,9 +65,19 @@ public class Bootcamp {
     public LocalDate getFim() {
         return fim;
     }
+    
+    /**
+     * Retorna os devs inscritos no bootcamp
+     * @return {@link Set}<{@link Dev}>
+     */
     public Set<Dev> getDevsInscritos() {
         return devsInscritos;
     }
+
+    /**
+     * Define os devs inscritos no bootcamp
+     * @param devsInscritos {@link Set}<{@link Dev}>
+     */
     public void setDevsInscritos(Set<Dev> devsInscritos) {
         this.devsInscritos = devsInscritos;
     }

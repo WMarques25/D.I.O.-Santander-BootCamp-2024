@@ -1,10 +1,11 @@
 package br.com.dio.desafio.dominio;
 
 /**
- * Classe {@code Conteudo}
+ * <b>Classe {@code Conteudo}</b>
  * 
  * Classe abstrata que representa um conteúdo genérico
  * 
+ * @param  XP_PADRAO {@code double}
  * @param titulo {@link String}
  * @param descricao {@link String}
  * 
@@ -20,6 +21,11 @@ public abstract class Conteudo {
     private String titulo;
     private String descricao;
 
+    /**
+     * <b>Calcula a experiência do conteúdo</b>
+     * 
+     * @return {@code double}
+     */
     public abstract double calcularXp();
 
     public String getTitulo() {

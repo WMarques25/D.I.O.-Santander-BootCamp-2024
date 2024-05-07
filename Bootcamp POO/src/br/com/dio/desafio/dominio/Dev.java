@@ -5,21 +5,58 @@ import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * <b>Classe {@code Dev}</b>
+ * <p>
+ * Classe que representa um desenvolvedor
+ * 
+ * @param nome {@link String}
+ * @param conteudosInscritos {@link Set}<{@link Conteudo}>
+ * @param conteudosConcluidos {@link Set}<{@link Conteudo}>
+ * 
+ * @see Bootcamp
+ * @see Conteudo
+ * 
+ * @author Wellington Marques
+ */
 public class Dev {
 
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new HashSet<>();
 
+    /**
+     * <b>Construtor {@link Dev}</b>
+     * 
+     * @param nome {@link String}
+     */
     public Dev(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * <b>Inscreve o desenvolvedor em um bootcamp</b>
+     * <p>
+     * Adiciona os conteúdos do bootcamp na lista de conteúdos inscritos do
+     * desenvolvedor e adiciona o desenvolvedor na lista de desenvolvedores
+     * @param bootcamp {@link Bootcamp}
+     * 
+     * @see Bootcamp
+     */
     public void inscreverBootcamp(Bootcamp bootcamp) {
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
         bootcamp.getDevsInscritos().add(this);
     }
 
+    /**
+     * <b>Progredir no conteúdo</b>
+     * <p>
+     * Move o primeiro conteúdo da lista de conteúdos inscritos para a lista de
+     * conteúdos concluídos
+     * 
+     * @see Conteudo
+     * 
+     */
     public void progredir() {
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
         if (conteudo.isPresent()) {
@@ -30,6 +67,13 @@ public class Dev {
         }
     }
 
+    /**
+     * <b>Calcular o total de XP</b>
+     * <p>
+     * Calcula o total de XP dos conteúdos concluídos
+     * 
+     * @return {@code double}
+     */
     public double calcularTotalXp() {
         return this.conteudosConcluidos.stream().mapToDouble(Conteudo::calcularXp).sum();
     }
