@@ -1,0 +1,65 @@
+package dio.gof.dp.service.impl;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import dio.gof.dp.model.Cliente;
+import dio.gof.dp.model.ClienteRepository;
+import dio.gof.dp.model.Endereco;
+import dio.gof.dp.model.EnderecoRepository;
+import dio.gof.dp.service.ClienteService;
+
+@Service
+public class ClienteServiceImpl implements ClienteService{
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
+
+    @Autowired
+    private ViaCepService viaCepService;
+
+    @Override
+    public Iterable<Cliente> buscarTodos() {
+        return clienteRepository.findAll();
+    }
+
+    @Override
+    public Cliente buscarPorId(Long id) {
+        return clienteRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void inserir(Cliente cliente) {
+        salvarClienteComCep(cliente);
+    }
+
+    private void salvarClienteComCep(Cliente cliente) {
+        Endereco endereco = enderecoRepository.findById(cliente.getEndereco().getCep()).orElseGet(() -> {
+            Endereco novoEndereco = viaCepService.consultarCep(cliente.getEndereco().getCep());
+            enderecoRepository.save(novoEndereco);
+            return novoEndereco;
+        });
+        cliente.setEndereco(endereco);
+        clienteRepository.save(cliente);
+    }
+
+    @Override
+    public void atualizar(Long id, Cliente cliente) {
+        Optional<Cliente> clienteAtual = clienteRepository.findById(id);
+        if(clienteAtual.isPresent()) {
+            salvarClienteComCep(cliente);
+        }
+
+    }
+
+    @Override
+    public void deletar(Long id) {
+        clienteRepository.deleteById(id);
+    }
+
+}
