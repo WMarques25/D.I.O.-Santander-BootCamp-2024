@@ -1,7 +1,9 @@
-package dio.gof.dp.model;
+package dio.gof.dp.model.Endereco;
 
+import dio.gof.dp.service.impl.ViaCepService;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 
 /**
  * Os atributos desse modelo foram gerados a partir do site jsonschema2pojo.org.
@@ -13,7 +15,7 @@ import jakarta.persistence.Id;
  * @author <a href="https://github.com/wmarques25">WMarques25</a>
  */
 
- @Entity
+@Entity
 public class Endereco {
 
     @Id
@@ -27,6 +29,10 @@ public class Endereco {
     private String ddd;
     private String siafi;
 
+    // @PrePersist
+    // public void prePersist() {
+        
+    // }
 
     public String getCep() {
         return cep;

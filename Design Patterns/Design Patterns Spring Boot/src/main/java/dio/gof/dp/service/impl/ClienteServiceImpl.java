@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dio.gof.dp.model.Cliente;
-import dio.gof.dp.model.ClienteRepository;
-import dio.gof.dp.model.Endereco;
-import dio.gof.dp.model.EnderecoRepository;
+import dio.gof.dp.model.Endereco.Endereco;
+import dio.gof.dp.model.Endereco.EnderecoRepository;
+import dio.gof.dp.model.cliente.Cliente;
+import dio.gof.dp.model.cliente.ClienteRepository;
 import dio.gof.dp.service.ClienteService;
 
 @Service

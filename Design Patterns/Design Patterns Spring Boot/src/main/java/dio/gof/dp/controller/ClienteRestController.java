@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dio.gof.dp.model.Cliente;
+import dio.gof.dp.model.cliente.Cliente;
 import dio.gof.dp.service.ClienteService;
+import dio.gof.dp.service.impl.ClienteServiceImpl;
 
 
 /**
@@ -23,7 +24,7 @@ import dio.gof.dp.service.ClienteService;
 public class ClienteRestController {
 
     @Autowired
-    private ClienteService clienteService;
+    private ClienteServiceImpl clienteService;
 
     @GetMapping
     public ResponseEntity<Iterable<Cliente>> buscarTodos() {

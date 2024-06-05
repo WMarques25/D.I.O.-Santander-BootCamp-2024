@@ -1,6 +1,6 @@
 package dio.gof.dp.service;
 
-import dio.gof.dp.model.Cliente;
+import dio.gof.dp.model.cliente.Cliente;
 
 /**
  * Interface que define o padrão <b>Strategy</b> no domínio de clientes.

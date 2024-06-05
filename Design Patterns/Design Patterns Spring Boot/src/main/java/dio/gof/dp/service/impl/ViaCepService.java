@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import dio.gof.dp.model.Endereco;
+import dio.gof.dp.model.Endereco.Endereco;
 
 /**
  * Cliente HTTP, criado via <b>OpenFeign</b>, para acessar a API <b>ViaCep</b>.

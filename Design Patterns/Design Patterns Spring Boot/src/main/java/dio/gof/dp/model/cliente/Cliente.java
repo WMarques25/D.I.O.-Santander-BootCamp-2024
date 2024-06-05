@@ -1,10 +1,15 @@
-package dio.gof.dp.model;
+package dio.gof.dp.model.cliente;
 
+import java.util.List;
+
+import dio.gof.dp.model.Endereco.Endereco;
+import dio.gof.dp.model.imovel.Imovel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -16,6 +21,17 @@ public class Cliente {
     
     @ManyToOne
     private Endereco endereco;
+
+    @OneToMany(mappedBy = "proprietario")
+    private List<Imovel> imoveis;
+
+    public List<Imovel> getImoveis() {
+        return imoveis;
+    }
+
+    public void setImoveis(List<Imovel> imoveis) {
+        this.imoveis = imoveis;
+    }
 
     public Long getId() {
         return id;
