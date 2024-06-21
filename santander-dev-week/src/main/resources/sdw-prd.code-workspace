@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"java.dependency.packagePresentation": "hierarchical",
+	    
+		"terminal.integrated.env.linux": {
+			"envFile": "${workspaceFolder}/.env"   
+		},
+		"java.configuration.updateBuildConfiguration": "interactive"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			
+
+		]
+	}
+}
